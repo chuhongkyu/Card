@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import css from "styled-jsx/css";
 import { motion } from "framer-motion";
 
+// 카드를 선택해서 id가 같으면 "성공"
+// 카드를 선택해서 id가 틀리면 "실패"
+
 const style = css`
   .card_box {
     display: grid;
@@ -15,97 +18,117 @@ const style = css`
 const cardList = [
   {
     id: 101,
-    type: 1,
     bg_Img: "/img/cass_01.jpeg",
     backState: true,
+    clear: false,
   },
   {
     id: 102,
-    type: 2,
     bg_Img: "/img/cass_02.jpeg",
     backState: true,
+    clear: false,
   },
   {
     id: 103,
-    type: 3,
     bg_Img: "/img/cass_03.jpeg",
     backState: true,
+    clear: false,
   },
   {
     id: 104,
-    type: 4,
     bg_Img: "/img/cass_04.jpeg",
     backState: true,
+    clear: false,
   },
   {
     id: 105,
-    type: 5,
     bg_Img: "/img/cass_05.jpeg",
     backState: true,
+    clear: false,
   },
   {
     id: 106,
-    type: 6,
     bg_Img: "/img/cass_06.jpeg",
     backState: true,
+    clear: false,
   },
   {
-    id: 107,
-    type: 1,
+    id: 201,
     bg_Img: "/img/cass_01.jpeg",
     backState: true,
+    clear: false,
   },
   {
-    id: 108,
-    type: 2,
+    id: 202,
     bg_Img: "/img/cass_02.jpeg",
     backState: true,
+    clear: false,
   },
   {
-    id: 109,
-    type: 3,
+    id: 203,
     bg_Img: "/img/cass_03.jpeg",
     backState: true,
+    clear: false,
   },
   {
-    id: 110,
-    type: 4,
+    id: 204,
     bg_Img: "/img/cass_04.jpeg",
     backState: true,
+    clear: false,
   },
   {
-    id: 111,
-    type: 5,
+    id: 205,
     bg_Img: "/img/cass_05.jpeg",
     backState: true,
+    clear: false,
   },
   {
-    id: 112,
-    type: 6,
+    id: 206,
     bg_Img: "/img/cass_06.jpeg",
     backState: true,
+    clear: false,
   },
 ];
 
 const Home = () => {
+  //카드 리스트이다
   const [cards, setCards] = useState(cardList);
+  //카드 선택 칸이다
   const [picks, setPicks] = useState([]);
 
+  //카드 선택 이벤트
   const onClick = (e) => {
+    //카드의 아이디 선택
     const id = e.target.id;
+    e.stopPropagation();
+    console.log(id);
     setCards(
       cards.map((card) =>
         card.id == id ? { ...card, backState: !card.backState } : card
       )
     );
-    setPicks([...picks, id]);
+    if (picks.length >= 2) {
+      setPicks([]);
+      setCards(
+        cards.map((card) =>
+          card.clear === false ? { ...card, backState: true } : card
+        )
+      );
+      console.log(picks);
+    } else if (picks[0] === picks[1] && !picks[1] == null) {
+      setPicks([]);
+      console.log("clear");
+    } else {
+      setPicks([...picks, id]);
+      console.log(picks);
+    }
   };
 
   return (
     <>
       <div>
         <h1>
-          첫번째 :{picks[0]} 두번째 : {picks[0]}
+          첫번째 :{picks[0]} 두번째 : {picks[1]}
         </h1>
       </div>
       <div className="card_box">
@@ -116,15 +139,16 @@ const Home = () => {
             style={
               card.backState
                 ? {
-                    backgroundColor: "white",
+                    backgroundImage: `url(${card.bg_Img})`,
+                    backgroundSize: "cover",
                     width: "100%",
-                    height: "100%",
+                    height: "100px",
                     border: "1px solid black",
                   }
                 : {
                     backgroundColor: "black",
                     width: "100%",
-                    height: "100%",
+                    height: "100px",
                     border: "1px solid black",
                   }
             }
@@ -132,11 +156,7 @@ const Home = () => {
             animate={{ rotateY: 180 }}
             exit={{ rotateY: 0 }}
             onClick={onClick}
-          >
-            {card.backState ? (
-              <Image width={100} height={100} src={card.bg_Img} alt={card.id} />
-            ) : null}
-          </motion.div>
+          ></motion.div>
         ))}
       </div>
       <style jsx>{style}</style>
