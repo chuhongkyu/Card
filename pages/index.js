@@ -102,20 +102,25 @@ const Home = () => {
     const id = e.target.id;
     e.stopPropagation();
     console.log(id);
+    //선택 카드의 아이디와 같으면 뒤집고(backState) 아니면 다시 뿌리기
     setCards(
       cards.map((card) =>
         card.id == id ? { ...card, backState: !card.backState } : card
       )
     );
+    //선택 칸의 길이가 2가 넘으면 []초기화 해주기
     if (picks.length >= 2) {
       setPicks([]);
+      //카드 중 clear가 실패면 앞면으로(backState) 아니면 다시 뿌리기
       setCards(
         cards.map((card) =>
           card.clear === false ? { ...card, backState: true } : card
         )
       );
       console.log(picks);
-    } else if (picks[0] === picks[1] && !picks[1] == null) {
+    }
+    // pick에 배열 0과 1이 같거나, null이 아니면 성공이고 선택을 초기화 시켜
+    else if (picks[0] === picks[1] && !picks[1] == null) {
       setPicks([]);
       console.log("clear");
     } else {
