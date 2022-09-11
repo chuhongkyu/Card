@@ -151,7 +151,8 @@ const Home = () => {
                     border: "1px solid black",
                   }
                 : {
-                    backgroundColor: "black",
+                    backgroundImage: `url(/img/default.jpeg)`,
+                    backgroundSize: "cover",
                     width: "100%",
                     height: "100px",
                     border: "1px solid black",
