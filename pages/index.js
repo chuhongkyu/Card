@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import css from "styled-jsx/css";
 import { motion } from "framer-motion";
 
@@ -91,43 +91,83 @@ const cardList = [
 ];
 
 const Home = () => {
-  //카드 리스트이다
-  const [cards, setCards] = useState(cardList);
   //카드 선택 칸이다
   const [picks, setPicks] = useState([]);
+
+  //카드 리스트이다
+  const [cards, setCards] = useState(cardList);
 
   //카드 선택 이벤트
   const onClick = (e) => {
     //카드의 아이디 선택
     const id = e.target.id;
+    gameRule(id);
     e.stopPropagation();
-    console.log(id);
     //선택 카드의 아이디와 같으면 뒤집고(backState) 아니면 다시 뿌리기
     setCards(
       cards.map((card) =>
         card.id == id ? { ...card, backState: !card.backState } : card
       )
     );
-    //선택 칸의 길이가 2가 넘으면 []초기화 해주기
-    if (picks.length >= 2) {
-      setPicks([]);
-      //카드 중 clear가 실패면 앞면으로(backState) 아니면 다시 뿌리기
-      setCards(
-        cards.map((card) =>
-          card.clear === false ? { ...card, backState: true } : card
-        )
-      );
-      console.log(picks);
-    }
-    // pick에 배열 0과 1이 같거나, null이 아니면 성공이고 선택을 초기화 시켜
-    else if (picks[0] === picks[1] && !picks[1] == null) {
-      setPicks([]);
-      console.log("clear");
-    } else {
-      setPicks([...picks, id]);
-      console.log(picks);
-    }
+    console.log("클릭 카드:", id);
   };
+
+  const gameRule = (id) => {
+    // 선택 하기
+    setPicks([...picks, id]);
+  };
+
+  //state는 비동기적으로 일어남
+  useEffect(() => {
+    //선택칸이 2개 보다 크면
+    if (picks.length >= 2) {
+      console.log("검사");
+      if (
+        String(picks[0]).substr(-1) === String(picks[1]).substr(-1) &&
+        picks[1] !== undefined
+      ) {
+        //카드들
+        setCards(
+          cards.map((card) =>
+            String(card.id).substr(-1) === String(picks[1]).substr(-1)
+              ? { ...card, clear: true }
+              : card
+          )
+        );
+        //초기화
+        setPicks([]);
+        console.log("성공");
+      }
+      //실패
+      else {
+        //다시 뒤집어
+        setCards(
+          cards.map((card) =>
+            card.clear === false ? { ...card, backState: false } : card
+          )
+        );
+        //초기화
+        setPicks([]);
+        console.log("실패");
+      }
+    }
+    console.log(cards);
+  }, [picks]);
+
+  useEffect(() => {}, []);
+
+  //전체 카드 뒤집기
+  const onhandle = () => {
+    console.log("뒤집기");
+    setCards(
+      cards.map((card) => (card.id ? { ...card, backState: false } : card))
+    );
+  };
+
+  useEffect(() => {
+    const timer = setTimeout(onhandle(), 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
