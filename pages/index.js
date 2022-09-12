@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 const style = css`
   .card_box {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, minmax(50px, auto));
     grid-auto-rows: auto;
     gap: 10px;
   }
@@ -141,14 +141,17 @@ const Home = () => {
       //실패
       else {
         //다시 뒤집어
-        setCards(
-          cards.map((card) =>
-            card.clear === false ? { ...card, backState: false } : card
-          )
-        );
+        const timer = setTimeout(() => {
+          setCards(
+            cards.map((card) =>
+              card.clear === false ? { ...card, backState: false } : card
+            )
+          );
+        }, 1400);
         //초기화
         setPicks([]);
         console.log("실패");
+        // return () => clearTimeout(timer);
       }
     }
     console.log(cards);
@@ -186,15 +189,17 @@ const Home = () => {
                 ? {
                     backgroundImage: `url(${card.bg_Img})`,
                     backgroundSize: "cover",
+                    backgroundPosition: "center",
                     width: "100%",
-                    height: "100px",
+                    height: "150px",
                     border: "1px solid black",
                   }
                 : {
                     backgroundImage: `url(/img/default.jpeg)`,
                     backgroundSize: "cover",
+                    backgroundPosition: "center",
                     width: "100%",
-                    height: "100px",
+                    height: "150px",
                     border: "1px solid black",
                   }
             }
