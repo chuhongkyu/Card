@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import css from "styled-jsx/css";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 // 카드를 선택해서 id가 같으면 "성공"
 // 카드를 선택해서 id가 틀리면 "실패"
@@ -188,35 +188,40 @@ const Home = () => {
         </h1>
       </div>
       <div className={game ? "card_box" : "card_box false"}>
-        {cards.map((card, index) => (
-          <motion.div
-            key={index}
-            id={card.id}
-            style={
-              card.backState
-                ? {
-                    backgroundImage: `url(${card.bg_Img})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    width: "100%",
-                    height: "150px",
-                    border: "1px solid black",
-                  }
-                : {
-                    backgroundImage: `url(/img/default.jpeg)`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    width: "100%",
-                    height: "150px",
-                    border: "1px solid black",
-                  }
-            }
-            initial={{ rotateY: 0 }}
-            animate={{ rotateY: 180 }}
-            exit={{ rotateY: 0 }}
-            onClick={onClick}
-          ></motion.div>
-        ))}
+        <AnimatePresence>
+          {cards.map((card, index) => (
+            <motion.div
+              layout
+              key={index}
+              id={card.id}
+              style={{
+                width: "100%",
+                height: "150px",
+                border: "1px solid black",
+              }}
+              initial={{ rotateY: 0 }}
+              animate={
+                card.backState
+                  ? {
+                      rotateY: [0, 180],
+                      backgroundImage: `url(${card.bg_Img})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      transition: { duration: 0.5, type: "spring" },
+                    }
+                  : {
+                      backgroundImage: `url(/img/default.jpeg)`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      rotateY: [180, 0],
+                      transition: { duration: 0.5, type: "spring" },
+                    }
+              }
+              exit={{ rotateY: 0 }}
+              onClick={onClick}
+            ></motion.div>
+          ))}
+        </AnimatePresence>
       </div>
       <style jsx>{style}</style>
     </>
