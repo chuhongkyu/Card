@@ -18,7 +18,7 @@ const style = css`
 
 const navData = [
   { id: 0, text: "카드 맞추기", href: "/" },
-  { id: 1, text: "카드 순서 맞추기", href: "/order" },
+  { id: 1, text: "카드 순서 맞추기", href: "/Order" },
 ];
 
 const Navbar = () => {

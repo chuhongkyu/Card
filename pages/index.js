@@ -13,6 +13,9 @@ const style = css`
     grid-auto-rows: auto;
     gap: 10px;
   }
+  .false {
+    pointer-events: none;
+  }
 `;
 
 const cardList = [
@@ -97,6 +100,9 @@ const Home = () => {
   //카드 리스트이다
   const [cards, setCards] = useState(cardList);
 
+  //게임 시작
+  const [game, setGame] = useState(false);
+
   //카드 선택 이벤트
   const onClick = (e) => {
     //카드의 아이디 선택
@@ -162,13 +168,15 @@ const Home = () => {
   //전체 카드 뒤집기
   const onhandle = () => {
     console.log("뒤집기");
+    setGame(true);
     setCards(
       cards.map((card) => (card.id ? { ...card, backState: false } : card))
     );
   };
 
+  //전체 카드 뒤집기 호출
   useEffect(() => {
-    const timer = setTimeout(onhandle(), 3000);
+    const timer = setTimeout(onhandle, 3000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -179,7 +187,7 @@ const Home = () => {
           첫번째 :{picks[0]} 두번째 : {picks[1]}
         </h1>
       </div>
-      <div className="card_box">
+      <div className={game ? "card_box" : "card_box false"}>
         {cards.map((card, index) => (
           <motion.div
             key={index}
