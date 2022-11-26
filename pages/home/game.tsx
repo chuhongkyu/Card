@@ -7,6 +7,7 @@ import { useRouter } from 'next/router'
 import { MouseEvent, useEffect, useState } from 'react';
 import styles from "styles/Game.module.scss"
 import { useStopwatch } from "react-timer-hook";
+import Menu from 'components/Menu';
 
 let nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -239,7 +240,7 @@ export default function Game() {
   const onClick = (e:MouseEvent<HTMLElement>) => {
     const cardIndex = e.currentTarget.getAttribute('data-index');
     const id = e.currentTarget.id;
-    const pickCard:Ipick = { id: id , index: cardIndex }
+    const pickCard :Ipick = { id: id , index: Number(cardIndex)}
     console.log("타겟 :", cardIndex);
     gameRule(pickCard);
     setFruit(
@@ -403,6 +404,7 @@ export default function Game() {
           <Clock minute={minuteTime} second={secondTime} />:
           <InfoTime />
         }
+        {menu ? <Menu min={minuteTime} sec={secondTime} func={() => setStart(!start)} />: null }
     </Layout>
   )
 }
