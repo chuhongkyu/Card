@@ -1,0 +1,27 @@
+import { motion } from "framer-motion";
+import styles from "styles/Game.module.scss"
+
+export default function InfoTime (){
+    return(
+        <motion.div
+            id={styles.info_time_container}
+            initial={{ y: 0 }}
+        >
+        <h2>5초 뒤 게임이 시작 됩니다</h2>
+        <div className={styles.ready_count}>
+          <motion.div
+            className={styles.count_div}
+            animate={{
+              transition: { delay: 0.5, duration: 5, type: "spring" },
+            }}
+          >
+            <span className={styles.text_count}>5</span>
+            <span className={styles.text_count}>4</span>
+            <span className={styles.text_count}>3</span>
+            <span className={styles.text_count}>2</span>
+            <span className={styles.text_count}>1</span>
+          </motion.div>
+        </div>
+      </motion.div>
+    )
+}

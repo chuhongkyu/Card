@@ -1,16 +1,103 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+  font-family: 'Patrick Hand', cursive;
 }
 
 html,
 body {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  color: var(--black);
+  max-width: 768px;
+  margin: 0 auto;
+  font-family: sans-serif;
 }
-
+body{
+  position: fixed;
+  overflow: hidden;
+  touch-action: none;
+}
 a {
   color: inherit;
   text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+
+#__next { 
+  height: var(--app-height);
+}
+
+ul,
+li {
+  list-style: none;
+  padding: unset;
+}
+
+a {
+  text-decoration: none;
+}
+
+img{
+  max-width: 100%;
+}
+
+
+/* 공통 var */
+
+
+:root {
+  --theme-1: #FFE15D;
+  --theme-2: #F49D1A;
+  --theme-3: #DC3535;
+  --theme-4: #B01E68;
+
+  --darker-blue: #002d72;
+  --dark-blue: #0057b8;
+  --light-blue: #147bd1;
+  --lighter-blue: #009cde;
+  --gold: #c69200;
+  --light-gold : #d6a92b;
+  --gray : #666666;
+  --black : #111;
+
+  --shadow : __vw(6) __vw(6) 0px rgba(0,0,0,0.2);
+}
+
+/* Layout */
+
+
+.section--lg {
+  width: 100%;
+  height: var(--app-height);
+  overflow: hidden;
+  max-width: 768px;
+  padding: 0 2rem;
+  margin: 0 auto;
 }
