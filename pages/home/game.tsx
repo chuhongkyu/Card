@@ -3,7 +3,6 @@ import Layout from 'components/Layout'
 import Clock from 'components/Clock'
 import InfoTime from 'components/InfoTime'
 import { motion } from 'framer-motion';
-import { useRouter } from 'next/router'
 import { MouseEvent, useEffect, useState } from 'react';
 import styles from "styles/Game.module.scss"
 import { useStopwatch } from "react-timer-hook";

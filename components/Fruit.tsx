@@ -52,7 +52,6 @@ const Fruit = ({ index, clear, state, fail}:Ifruit) =>{
                             <img src={frontList[index]} alt={index+""} />
                         </div>
                         <div className={styles.__back}>
-                            <div className={styles.__box}></div>
                         </div>
                     </motion.div>
                 )

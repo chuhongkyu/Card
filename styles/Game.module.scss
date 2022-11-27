@@ -23,6 +23,8 @@
             grid-column: span 1;
             position: relative;
             backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            -webkit-transform: translate3d(0,0,0);
             box-shadow: rgba(0, 0, 0, 0.24) 0 __vw(3) __vw(8);
             border-radius: __vw(8);
                 .__front{
@@ -45,22 +47,14 @@
                 }
                 .__back{
                     transform: rotateY(180deg);
-                    background-color: white;
+                    background-color: var(--theme-4);
                     border-radius: __vw(8);
-                    border: __vw(1) solid var(--theme-4);
                     width: 100%;
                     height: 100%;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     flex-direction: column;
-                    .__box{
-                        padding: __vw(34);
-                        width: fit-content;
-                        height: fit-content;
-                        background-color: var(--theme-4);
-                        border-radius: __vw(8);
-                    }
                 }
         }
     }
@@ -108,7 +102,7 @@
     z-index: 9;
     color: var(--theme-4);
     .ready_count {
-        margin-top: __vw(10);
+        margin-top: __vw(5);
         display: flex;
         justify-items: center;
         align-items: center;
