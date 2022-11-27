@@ -22,8 +22,8 @@ export default function Home() {
         </div> 
       </div>  
       <div className={styles.btn_group}>
-        <span className={styles.btn_start} onClick={onStart}>start</span>
-        <span className={styles.btn_tutorial}>tutorial</span>
+        <span className={styles.btn_start} onClick={onStart}>start !</span>
+        <span className={styles.btn_tutorial}>tutorial !</span>
       </div>
     </Layout>
   )

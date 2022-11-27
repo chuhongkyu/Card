@@ -349,7 +349,8 @@ export default function Game() {
 
   //다시 시작
   const reStart = () => {
-    setStart(false);
+    setStart(true);
+    setGame(false)
     setMenu(false);
     reset();
     setTimer(false);
@@ -375,7 +376,7 @@ export default function Game() {
     <Layout>
         <motion.div id={styles.game_section}>
             <h1 className={styles.title}>Game</h1>
-            <motion.div 
+            {start ? <motion.div 
               className={styles.container}
               style={game ? {}:{pointerEvents: "none"}}
             >
@@ -398,13 +399,13 @@ export default function Game() {
                         )
                     })
                 }
-            </motion.div>
+            </motion.div> : null}
         </motion.div>
         {timer ? 
           <Clock minute={minuteTime} second={secondTime} />:
           <InfoTime />
         }
-        {menu ? <Menu min={minuteTime} sec={secondTime} func={() => setStart(!start)} />: null }
+        {menu ? <Menu min={minuteTime} sec={secondTime} func={reStart} />: null }
     </Layout>
   )
 }

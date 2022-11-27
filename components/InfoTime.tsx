@@ -12,6 +12,7 @@ export default function InfoTime (){
           <motion.div
             className={styles.count_div}
             animate={{
+              y:["0%", "-20%","-40%","-60%","-80%","-100%"],
               transition: { delay: 0.5, duration: 5, type: "spring" },
             }}
           >
