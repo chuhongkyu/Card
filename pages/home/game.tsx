@@ -386,6 +386,7 @@ export default function Game() {
                           id={fruit.id}
                           data-index={fruit.index}
                           onClick={onClick}
+                          whileTap={{scale: [1,0.9,1.1,1]}}
                           animate={fruit.fail ? {rotateZ:180}:{}}
                         >
                           <Fruit

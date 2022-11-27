@@ -24,7 +24,6 @@
             position: relative;
             backface-visibility: hidden;
             -webkit-backface-visibility: hidden;
-            -webkit-transform: translate3d(0,0,0);
             box-shadow: rgba(0, 0, 0, 0.24) 0 __vw(3) __vw(8);
             border-radius: __vw(8);
                 .__front{
@@ -40,6 +39,8 @@
                     flex-direction: column;
                     background-color: white;
                     border-radius: __vw(8);
+                    backface-visibility: hidden;
+                    -webkit-backface-visibility: hidden;
                     img{
                         width: __vw(60);
                         height: __vw(60);
