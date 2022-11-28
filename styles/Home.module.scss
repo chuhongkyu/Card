@@ -6,6 +6,11 @@
     justify-content: flex-end;
 }
 
+.img_box{
+    width: 100%;
+    height: __vw(350);
+}
+
 .text_group{
     display: flex;
     justify-content: center;
@@ -23,7 +28,7 @@
             margin-bottom: __vw(5);
         }
         .title{
-            font-size: __vw(40);  
+            font-size: __vw(45);  
             color: var(--theme-4);
             font-weight: 800;
             text-align: start;
@@ -46,7 +51,7 @@
     padding: __vw(50) 0 __vw(80);
     span{
         display: inline-block;
-        width: __vw(190);
+        width: __vw(150);
         height: __vw(50);
         border-radius: __vw(25);
         background-color: var(--theme-2);
@@ -57,8 +62,9 @@
         align-items: center;
     }
     .btn_start{
+        cursor: pointer;
     }
     .btn_tutorial{
-
+        cursor: pointer;
     }
 }

@@ -6,7 +6,6 @@ interface Ifruit {
     state: string;
     index: number;
     clear: boolean;
-    fail:boolean;
 }
 
 const frontList:any = {
@@ -22,7 +21,7 @@ const frontList:any = {
     9: "/assets/img/09.svg",
   };
 
-const Fruit = ({ index, clear, state, fail}:Ifruit) =>{
+const Fruit = ({ index, clear, state}:Ifruit) =>{
     const [destory, setDestory] = useState(clear);
 
     const onDestory = () => {
@@ -32,7 +31,7 @@ const Fruit = ({ index, clear, state, fail}:Ifruit) =>{
     };
 
     useEffect(() => {
-        const timer = setTimeout(onDestory, 400);
+        const timer = setTimeout(onDestory, 900);
         return () => clearTimeout(timer);
     }, [clear]);
     
@@ -64,7 +63,6 @@ Fruit.defaultProps = {
     index: 0,
     state: "front",
     clear: false,
-    fail: false,
   };
 
 export default Fruit;

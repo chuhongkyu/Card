@@ -1,4 +1,5 @@
 import Layout from 'components/Layout'
+import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 import styles from 'styles/Home.module.scss'
 
@@ -20,10 +21,11 @@ export default function Home() {
           <p className={styles.description}>Do you like fruits?</p>
           <h1 className={styles.title}>Match<br/>the fruits!</h1>
         </div> 
-      </div>  
+      </div>
+      <img className={styles.img_box} src="/assets/img/fruit.jpeg" alt="fruits"/>
       <div className={styles.btn_group}>
-        <span className={styles.btn_start} onClick={onStart}>start !</span>
-        <span className={styles.btn_tutorial}>tutorial !</span>
+        <motion.span className={styles.btn_start} onClick={onStart}>start !</motion.span>
+        <motion.span className={styles.btn_tutorial}>tutorial !</motion.span>
       </div>
     </Layout>
   )

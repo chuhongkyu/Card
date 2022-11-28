@@ -17,7 +17,7 @@ export default function Menu({min,sec,func}:Iprop) {
     return(
         <motion.div 
             id={styles.Menu}
-            initial={{y:0}}
+            initial={{y:500}}
             animate={{y:[500, 0], scaleY:[0.6,1], opacity:[0,1]}}
         >
             <div className={styles.mask}></div>

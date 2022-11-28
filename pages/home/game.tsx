@@ -387,13 +387,18 @@ export default function Game() {
                           data-index={fruit.index}
                           onClick={onClick}
                           whileTap={{scale: [1,0.9,1.1,1]}}
-                          animate={fruit.fail ? {rotateZ:180}:{}}
+                          animate={fruit.fail ? {rotateZ:180}: fruit.clear ? 
+                          { rotateY: [0,360,-360],
+                            scale: 1.2,
+                            zIndex: 99,
+                            pointerEvents:"none",
+                            transition: {duration: 0.5, delay: 0.4, type: "spring"}
+                          }:{}}
                         >
                           <Fruit
                               index={fruit.index}
                               state={fruit.state}
                               clear={fruit.clear}
-                              fail={fruit.fail}
                           />
                         </motion.div>
                         )
