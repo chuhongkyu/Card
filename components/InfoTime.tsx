@@ -7,7 +7,7 @@ export default function InfoTime (){
             id={styles.info_time_container}
             initial={{ y: 0 }}
         >
-        <h2>5초 뒤 게임이 시작 됩니다</h2>
+        <h2>start in 5 seconds</h2>
         <div className={styles.ready_count}>
           <motion.div
             className={styles.count_div}

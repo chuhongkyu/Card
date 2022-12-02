@@ -17,8 +17,6 @@
         grid-template-rows: repeat(5, 1fr);
         gap: __vw(10);
         margin-bottom: __vw(60);
-        // perspective: 900px;
-        // -webkit-perspective: 900px;
         .fruit{
             width: 100%;
             height: __vw(85);
