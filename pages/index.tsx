@@ -1,3 +1,4 @@
+import HeadComponent from 'components/HeadComponent'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
@@ -32,6 +33,7 @@ export default function Intro() {
 
   return (
     <AnimatePresence>
+      <HeadComponent/>
       <div id={styles.intro}>
         <motion.div variants={Variants} initial="initial" animate="animate" exit="exit" className={styles.intro_img}>
         </motion.div>
