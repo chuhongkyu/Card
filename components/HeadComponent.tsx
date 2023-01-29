@@ -21,10 +21,10 @@ export default function HeadComponent() {
         <title>{metaData.title}</title>
         <meta name="description" content="Match the Fruit" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charSet="utf-8"/>
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content={metaData.description} />
         <meta name="keywords" content={metaData.keywords} />
-
         <meta property="og:type" content="website" />
         <meta property="og:title" content={metaData.title} />
         <meta property="og:site_name" content={metaData.title} />

@@ -33,8 +33,8 @@ export default function Home() {
   return (
     <Layout>
       <div className={styles.setting_group}>
-        <span>환경</span>
-        <span>설정</span>
+        {/* <span>Setting</span>
+        <span>Sounds</span> */}
       </div>
       <div className={styles.text_group}>
         <div className={styles.center}>

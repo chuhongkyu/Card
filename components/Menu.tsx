@@ -57,8 +57,8 @@ export default function Menu({min,sec,func}:Iprop) {
             <div className={styles.info}>
                 <h1>Game Over</h1>
                 <div className={styles.time}>
-                    <p>기록 : {min}:{sec}</p>
-                    {!score.first ? <p> 최고 기록 : {score.min}: {score.sec}</p> : null}
+                    <p>Record : {min}:{sec}</p>
+                    {!score.first ? <p> Best Record : {score.min}: {score.sec}</p> : null}
                 </div>
                 <span onClick={reStart}>Home !</span>
                 <span onClick={func}>ReStart !</span>

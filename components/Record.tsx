@@ -29,11 +29,11 @@ export default function Record() {
             transition={{duration: 1}}
         >
             <div className={styles.header}>
-                <h5 className={styles.title}>최단 기록</h5>
+                <h5 className={styles.title}>Best Record</h5>
             </div>
             
             <div className={styles.body}>
-                <p className={styles.record}><b>최단 시간</b> : {highScore.min}:{highScore.sec}</p>
+                <p className={styles.record}><b>Best Record</b> : {highScore.min}:{highScore.sec}</p>
                 <span onClick={onHandle} className={styles.exit}>X</span>
             </div>
         </motion.div>
