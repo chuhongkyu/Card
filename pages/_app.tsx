@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app'
 import { useEffect } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import { RecoilRoot } from "recoil";
+import HeadComponent from 'components/HeadComponent'
 
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -17,6 +18,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <AnimatePresence>
       <RecoilRoot>
+        <HeadComponent/>
         <Component {...pageProps} />
       </RecoilRoot>
     </AnimatePresence>
