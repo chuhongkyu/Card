@@ -11,25 +11,37 @@ interface Iprop {
     func: (event: React.MouseEvent<HTMLElement>) => void;
 }
 
+interface IHighTime {
+    first?: boolean;
+    min: number;
+    sec: number;
+}
+
 export default function Menu({min,sec,func}:Iprop) {
     const router = useRouter()
 
     const [highScore, setHighScore] = useRecoilState(scoreState);
     
-    const [score, setScore] = useState<number>(0);
-
-    function onHandle(){
-        setScore(parseInt(min + sec))
-    }
+    const [score, setScore] = useState<IHighTime>({ min : 0, sec: 0});
 
     useEffect(()=>{
-        onHandle()
+        setScore({first: highScore.first, min : parseInt(min), sec: parseInt(sec)})
     },[])
 
     useEffect(() => {
-        if(score > highScore){
-            setHighScore(score)
+        if(score.sec < highScore.sec){
+            setHighScore((prevState) => ({...prevState, min : score.min, sec: score.sec}))
+            localStorage.setItem("scoreState", JSON.stringify({first: false, min : score.min, sec: score.sec}))
+            console.log('초')
+        }else if(score.min < highScore.min){
+            setHighScore((prevState) => ({...prevState, min : score.min, sec: score.sec}))
+            localStorage.setItem("scoreState", JSON.stringify({first: false, min : score.min, sec: score.sec}))
+            console.log('분')
+        }else{
+            console.log('안됨')
+            localStorage.setItem("scoreState", JSON.stringify({first: false, min : score.min, sec: score.sec}))
         }
+        
     }, [score])
 
     const reStart = () =>{
@@ -44,9 +56,9 @@ export default function Menu({min,sec,func}:Iprop) {
             <div className={styles.mask}></div>
             <div className={styles.info}>
                 <h1>Game Over</h1>
-                <div>
-                    <p>END : {min}:{sec}</p>
-                    <p>Score : {score}</p>
+                <div className={styles.time}>
+                    <p>기록 : {min}:{sec}</p>
+                    {!score.first ? <p> 최고 기록 : {score.min}: {score.sec}</p> : null}
                 </div>
                 <span onClick={reStart}>Home !</span>
                 <span onClick={func}>ReStart !</span>

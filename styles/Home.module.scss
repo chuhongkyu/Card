@@ -68,3 +68,62 @@
         cursor: pointer;
     }
 }
+
+.dim_bg{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background: rgba(0,0,0, 0.5);
+}
+.popup{
+    position: absolute;
+    z-index: 11;
+    left: 0;
+    bottom: 0;
+    background: #fff;
+    height: calc(100vh - __vw(30));
+    transform-origin: bottom;
+    width: 100%;
+    border-top-left-radius: __vw(25);
+    border-top-right-radius: __vw(25);
+    .header{
+        padding: __vw(25) 0 __vw(10);
+        border-bottom: 1px solid rgba(0,0,0, 0.5);
+        .title{
+            text-align: center;
+            font-weight: 500;
+            font-size: __vw(25);
+        }
+    }
+    .body{
+        width: 100%;
+        height: fit-content;
+        padding: __vw(20);
+        position: relative;
+        .record{
+            font-size: __vw(25);
+            b{
+                font-weight: 500;
+            }
+        }
+        span{
+            position: fixed;
+            right: __vw(20);
+            bottom: __vw(20);
+            background: #666;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            color: #fff;
+            font-size: __vw(20);
+            width: __vw(50);
+            height: __vw(50);
+            border-radius: 50%;
+        }
+    }
+    
+}
