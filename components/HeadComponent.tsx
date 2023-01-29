@@ -21,6 +21,7 @@ export default function HeadComponent() {
         <title>{metaData.title}</title>
         <meta name="description" content="Match the Fruit" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="google-site-verification" content="mtYE_cYSNMHVF7KJPjly8GIJXgXfrbCG67BzEi3OY3c" />
         <meta charSet="utf-8"/>
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content={metaData.description} />
