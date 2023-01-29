@@ -2,6 +2,7 @@ import 'styles/globals.css'
 import type { AppProps } from 'next/app'
 import { useEffect } from 'react'
 import { AnimatePresence } from 'framer-motion'
+import { RecoilRoot } from "recoil";
 
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -15,7 +16,9 @@ export default function App({ Component, pageProps }: AppProps) {
   }, [])
   return (
     <AnimatePresence>
-      <Component {...pageProps} />
+      <RecoilRoot>
+        <Component {...pageProps} />
+      </RecoilRoot>
     </AnimatePresence>
     )
 }
