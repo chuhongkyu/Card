@@ -16,9 +16,8 @@ const Variants = {
     }
   },
   exit:{
-    opacity: [1, 0]
-  }
-  
+    opacity: [1, 0],
+  },
 }
 
 
@@ -31,11 +30,7 @@ export default function Intro() {
   }, [])
 
   return (
-    <AnimatePresence>
-      <div id={styles.intro}>
-        <motion.div variants={Variants} initial="initial" animate="animate" exit="exit" className={styles.intro_img}>
-        </motion.div>
-      </div>
-    </AnimatePresence>
+      <motion.div id={styles.intro} exit={{opacity: 1}}>
+      </motion.div>
   )
 }

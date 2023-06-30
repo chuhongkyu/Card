@@ -2,32 +2,35 @@
 @import './mixins';
 
 #game_section{
+    margin-top: __vw(34px);
     width: 100%;
-    height: 100%;
+    @media screen and (min-width: 1024px){
+        padding-bottom: __vw(52px);
+    }
     .title{
-        font-size: __vw(40);  
+        font-size: __vw(40px);  
         color: var(--theme-4);
         font-weight: 800;
         text-align: start;
-        margin-bottom: __vw(15);
+        margin-bottom: __vw(15px);
     }
     .container{
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(5, 1fr);
-        gap: __vw(10);
-        margin-bottom: __vw(60);
+        gap: __vw(10px);
+        margin-bottom: __vw(60px);
         .fruit{
             width: 100%;
-            height: __vw(85);
+            height: __vw(85px);
             grid-column: span 1;
             position: relative;
             backface-visibility: hidden;
             -webkit-backface-visibility: hidden;
             transform-style: preserve-3d;
             -webkit-transform-style: preserve-3d;
-            box-shadow: rgba(0, 0, 0, 0.24) 0 __vw(3) __vw(8);
-            border-radius: __vw(8);
+            box-shadow: rgba(0, 0, 0, 0.24) 0 __vw(3px) __vw(8px);
+            border-radius: __vw(8px);
                 .__front{
                     width: 100%;
                     height: 100%;
@@ -40,18 +43,18 @@
                     align-items: center;
                     flex-direction: column;
                     background-color: white;
-                    border-radius: __vw(8);
+                    border-radius: __vw(8px);
                     backface-visibility: hidden;
                     -webkit-backface-visibility: hidden;
                     img{
-                        width: __vw(60);
-                        height: __vw(60);
+                        width: __vw(60px);
+                        height: __vw(60px);
                     }
                 }
                 .__back{
                     transform: rotateY(180deg);
                     background-color: var(--theme-4);
-                    border-radius: __vw(8);
+                    border-radius: __vw(8px);
                     width: 100%;
                     height: 100%;
                     display: flex;
@@ -72,26 +75,26 @@
     align-items: center;
     flex-direction: column;
     position: fixed;
-    bottom: __vh(40);
+    bottom: __vw(40px);
     left: 0;
     z-index: 9;
     h2 {
-      font-size: __vw(20);
+      font-size: __vw(20px);
       color: var(--theme-4);
     }
     .clock {
-        width: __vh(114);
-        height: __vh(60);
-        font-size: __vh(20);
-        border-radius: __vw(1000);
-        border: __vw(3) solid var(--theme-4);
+        width: __vh(114px);
+        height: __vh(60px);
+        font-size: __vw(20px);
+        border-radius: __vw(1000px);
+        border: __vw(3px) solid var(--theme-4);
         background-color: #fff;
         color: var(--theme-4);
         text-align: center;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: __vw(10);
+        margin-top: __vw(10px);
     }
 }
 
@@ -103,18 +106,18 @@
     flex-direction: column;
     position: fixed;
     left: 0;
-    bottom: __vh(40);
+    bottom: __vw(40px);
     z-index: 9;
     color: var(--theme-4);
     .ready_count {
-        margin-top: __vw(5);
+        margin-top: __vw(5px);
         display: flex;
         justify-items: center;
         align-items: center;
         flex-direction: column;
         overflow: hidden;
-        width: __vw(50);
-        height: __vw(50);
+        width: __vw(50px);
+        height: __vw(50px);
     }
       
     .count_div {
@@ -122,23 +125,23 @@
         justify-items: flex-start;
         align-items: center;
         flex-direction: column;
-        width: __vw(50);
+        width: __vw(50px);
         height: fit-content;
         .text_count {
-            width: __vw(50);
-            height: __vw(50);
+            width: __vw(50px);
+            height: __vw(50px);
             display: inline-block;
             text-align: center;
-            font-size: __vw(45);
+            font-size: __vw(45px);
             color: white;
-            -webkit-text-stroke-width: __vw(1);
+            -webkit-text-stroke-width: __vw(1px);
             -webkit-text-stroke-color: var(--theme-4);
         }
     }
 }
 
 #Menu{
-   padding: __vw(20);
+   padding: __vw(20px);
    width: 100%;
    height: 100%;
    position: fixed;
@@ -149,7 +152,7 @@
    transform-origin: bottom;
    .mask{
        width: 100%;
-       height: __vw(50);
+       height: __vw(50px);
        position: absolute;
        top: 0;
        left: 0;
@@ -166,24 +169,24 @@
         justify-content: flex-start;
         align-items: center;
         flex-direction: column;
-        gap: __vw(5);
+        gap: __vw(5px);
        h1{
-            padding-top: __vw(80);
-            font-size: __vw(50);
-            margin-bottom: __vw(50);
+            padding-top: __vw(80px);
+            font-size: __vw(50px);
+            margin-bottom: __vw(50px);
        }
        p{
-            font-size: __vw(30);
-            margin-bottom: __vw(100);
+            font-size: __vw(30px);
+            margin-bottom: __vw(100px);
        }
        span{
             display: inline-block;
-            width: __vw(190);
-            height: __vw(50);
-            border-radius: __vw(25);
+            width: __vw(190px);
+            height: __vw(50px);
+            border-radius: __vw(25px);
             background-color: var(--theme-2);
             color: white;
-            text-shadow: __vw(2) __vw(2) __vw(3) rgba(255,255,255,0.1);
+            text-shadow: __vw(2px) __vw(2px) __vw(3px) rgba(255,255,255,0.1);
             display: flex;
             justify-content: center;
             align-items: center;

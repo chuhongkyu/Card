@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import styles from "styles/Game.module.scss"
 
@@ -22,6 +23,7 @@ const frontList:any = {
   };
 
 const Fruit = ({ index, clear, state}:Ifruit) =>{
+    const router = useRouter()
     const [destory, setDestory] = useState(clear);
 
     const onDestory = () => {
@@ -34,6 +36,10 @@ const Fruit = ({ index, clear, state}:Ifruit) =>{
         const timer = setTimeout(onDestory, 900);
         return () => clearTimeout(timer);
     }, [clear]);
+
+    useEffect(()=>{
+        // console.log(router.query)
+    },[])
     
     return (
         <>
@@ -51,6 +57,7 @@ const Fruit = ({ index, clear, state}:Ifruit) =>{
                             <img src={frontList[index]} alt={index+""} />
                         </div>
                         <div className={styles.__back}>
+                            {router.query.hint ? index : null}
                         </div>
                     </motion.div>
                 )

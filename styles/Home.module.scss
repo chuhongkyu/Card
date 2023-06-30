@@ -1,14 +1,12 @@
 @import './variables';
 @import './mixins';
 
-.setting_group{
-    display: flex;
-    justify-content: flex-end;
-}
 
-.img_box{
+.setting_group{
     width: 100%;
-    height: __vw(350);
+    margin-top: __vw(34px);
+    position: relative;
+    height: fit-content;
 }
 
 .text_group{
@@ -21,16 +19,16 @@
         align-items: flex-start;
         flex-direction: column;
         .description{
-            font-size: __vw(15);
+            font-size: __vw(15px);
             color: var(--gray);
             font-weight: 400;
             text-align: start;
-            margin-bottom: __vw(5);
+            margin-bottom: __vw(5px);
         }
         .title{
-            font-size: __vw(45);  
+            font-size: __vw(45px);  
             color: var(--theme-4);
-            font-weight: 800;
+            font-weight: 700;
             text-align: start;
             line-height: 98%;
         }
@@ -38,28 +36,33 @@
 }
 
 .btn_group{
-    width: 100%;
     position: fixed;
-    bottom: 0;
+    width: 100%;
+    bottom: __vw(20px);
     left: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: __vw(10);
-    font-size: __vw(25);
-    padding: __vw(50) 0 __vw(80);
+    font-size: __vw(25px);
+    @media screen and (min-width: 1024px){
+        position: initial;
+        padding-bottom: __vw(52px);
+    }
     span{
         display: inline-block;
-        width: __vw(150);
-        height: __vw(50);
-        border-radius: __vw(25);
+        width: __vw(150px);
+        height: __vw(50px);
+        border-radius: __vw(25px);
         background-color: var(--theme-2);
         color: white;
-        text-shadow: __vw(2) __vw(2) __vw(3) rgba(255,255,255,0.1);
+        text-shadow: __vw(2px) __vw(2px) __vw(3px) rgba(255,255,255,0.1);
         display: flex;
         justify-content: center;
         align-items: center;
+        &:not(:last-of-type){
+            margin-bottom: __vw(6px);
+        }
     }
     .btn_start{
         cursor: pointer;
@@ -69,61 +72,71 @@
     }
 }
 
+.img_box{
+    margin-top: __vw(12px);
+    width: 100%;
+    height: __vw(350px);
+    img{
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+}
+
 .dim_bg{
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 10;
     background: rgba(0,0,0, 0.5);
+    display: flex;
+    justify-content: center;
 }
+
 .popup{
-    position: absolute;
-    z-index: 11;
-    left: 0;
-    bottom: 0;
+    max-width: $max-width;
+    margin: 0 auto;
     background: #fff;
-    height: calc(100vh - __vw(30));
-    transform-origin: bottom;
+    margin-top: __vw(30px);
+    height: 100%;
     width: 100%;
-    border-top-left-radius: __vw(25);
-    border-top-right-radius: __vw(25);
+    border-top-left-radius: __vw(25px);
+    border-top-right-radius: __vw(25px);
     .header{
-        padding: __vw(25) 0 __vw(10);
+        padding: __vw(25px) 0 __vw(10px);
         border-bottom: 1px solid rgba(0,0,0, 0.5);
         .title{
             text-align: center;
             font-weight: 500;
-            font-size: __vw(25);
+            font-size: __vw(25px);
         }
     }
     .body{
         width: 100%;
         height: fit-content;
-        padding: __vw(20);
-        position: relative;
+        padding: __vw(20px);
         .record{
-            font-size: __vw(25);
+            font-size: __vw(25px);
             b{
                 font-weight: 500;
             }
         }
-        span{
+        .exit{
             position: fixed;
-            right: __vw(20);
-            bottom: __vw(20);
+            right: __vw(20px);
+            bottom: __vw(52px);
             background: #666;
             display: flex;
             justify-content: center;
             align-items: center;
             font-weight: 700;
             color: #fff;
-            font-size: __vw(20);
-            width: __vw(50);
-            height: __vw(50);
+            font-size: __vw(20px);
+            width: __vw(50px);
+            height: __vw(50px);
             border-radius: 50%;
         }
     }
-    
 }

@@ -19,6 +19,7 @@ export default function Home() {
 
   const onOpenRecord = () =>{
     setRedcord(!record)
+    window.document.body.classList.toggle("lock")
   }
 
   useEffect(() => {
@@ -42,7 +43,10 @@ export default function Home() {
           <h1 className={styles.title}>Match<br/>the fruits!</h1>
         </div> 
       </div>
-      <img className={styles.img_box} src="/assets/img/fruit.jpeg" alt="fruits"/>
+      <div className={styles.img_box}>
+        <img src="/assets/img/fruit.jpeg" alt="fruits"/>
+      </div>
+      
       <div className={styles.btn_group}>
         <motion.span className={styles.btn_start} onClick={onStart}>start !</motion.span>
         <motion.span className={styles.btn_tutorial} onClick={onOpenRecord}>record !</motion.span>

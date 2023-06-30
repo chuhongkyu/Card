@@ -2,11 +2,12 @@
 @import './mixins';
 
 .section{
-    height: var(--app-height);
-    padding: __vw(20);
-    .web{
-        display: none;   
-    }
+    width: 100%;
+    margin: 0 auto;
+    max-width: $max-width;
+    // height: var(--landing-100vh, 100vh);
+    padding: 0 __vw(20px);
+    background: #fff;
 }
 
 #intro{
@@ -20,28 +21,6 @@
     .intro_img{
         background: url('/assets/img/fruit.jpeg') center center / cover no-repeat ;
         width: 100%;
-        height: __vw(400);
-    }
-}
-
-
-/* Tablet */
-@media (min-width: 800px) {
-    .section{
-        .web{
-            width: 100%;
-            height: 100%;
-            background-color: var(--theme-3);
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: __vw(22);
-            white-space: normal;
-        }
+        height: __vw(400px);
     }
 }
