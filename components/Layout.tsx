@@ -8,7 +8,7 @@ type LayoutComponent = {
 
 export default function Layout( {children}:LayoutComponent) {
     return (
-      <motion.div className={styles.section} initial={{opacity:0}} animate={{opacity:[0,1]}}>
+      <motion.div className={styles.section} initial={{opacity:0}} animate={{opacity:[0,1]}} exit={{opacity: [1,0]}}>
         {children}
       </motion.div>
     );

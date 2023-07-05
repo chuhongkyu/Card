@@ -30,7 +30,7 @@ export default function App({ Component, pageProps }: AppProps) {
     }
   }, [])
   return (
-    <AnimatePresence exitBeforeEnter>
+    <AnimatePresence initial={false} exitBeforeEnter>
       <RecoilRoot>
         <HeadComponent/>
         <Component {...pageProps} key={router.pathname} />
