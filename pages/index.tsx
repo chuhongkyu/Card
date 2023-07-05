@@ -3,24 +3,6 @@ import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import styles from 'styles/Layout.module.scss'
 
-const Variants = {
-  initial:{
-    rotateZ: 0
-  },
-  animate:{
-    scale: [1.2, 1],
-    rotateZ: [0, 360],
-    transition:{
-      duration: 1.3,
-      type: "spring"
-    }
-  },
-  exit:{
-    opacity: [1, 0],
-  },
-}
-
-
 export default function Intro() {
   const router = useRouter()
 
@@ -30,7 +12,25 @@ export default function Intro() {
   }, [])
 
   return (
-      <motion.div id={styles.intro} exit={{opacity: 1}}>
+      <motion.div id={styles.intro} exit={{opacity: 0}}>
+        <div className={styles.intro_box}>
+            <div className={styles.intro_border}>
+                <div className={styles.intro_inner}>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+            </div>
+        </div>
       </motion.div>
   )
 }
